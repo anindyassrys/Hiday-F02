@@ -97,8 +97,12 @@ WSGI_APPLICATION = 'TK3_F02.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'hiday-f02',
+        'USER': 'buatzmqvaozryc',
+        'PASSWORD': 'cf874b24637304305ec4b0d242e8f389026bd2c0928d4c67a36738947715bbc2',
+        'HOST' : 'localhost',
+        'POST' : '',
     }
 }
 
