@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hello, world!</title>
+{% endblock meta %}
+
+{% block content %}
+  <h1>Hello, {{ role }}!!</h1>
+  <p><a href="{% url 'home:logout' %}">Log Out</a></p>
+{% endblock content %}
