@@ -4,6 +4,7 @@ from django.db import connection
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.shortcuts import redirect, render
 from collections import namedtuple
+from django.contrib import messages
 from .form import *
 
 def login(request):
@@ -43,9 +44,10 @@ def login(request):
                     return HttpResponseRedirect("/home")
 
                 return HttpResponseNotFound("The user does not exist")
+            
             cursor.execute("SET search_path TO public")
             return redirect("home:login")
-        
+
         else:
             cursor.execute("SET search_path TO public")
             return render(request, "login.html", {})
