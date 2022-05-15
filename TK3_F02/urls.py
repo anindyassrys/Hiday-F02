@@ -21,4 +21,5 @@ from main import urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls', namespace="home")),
+    path('aset/', include('aset.urls')),
 ]
