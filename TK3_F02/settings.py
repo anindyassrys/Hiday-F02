@@ -14,6 +14,9 @@ import os
 from pathlib import Path
 
 import dj_database_url
+# import sys
+
+DATABASE_URL = 'postgres://buatzmqvaozryc:cf874b24637304305ec4b0d242e8f389026bd2c0928d4c67a36738947715bbc2@ec2-3-229-11-55.compute-1.amazonaws.com:5432/d79uihb9db81es'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -97,15 +100,17 @@ WSGI_APPLICATION = 'TK3_F02.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hiday-f02',
-        'USER': 'buatzmqvaozryc',
-        'PASSWORD': 'cf874b24637304305ec4b0d242e8f389026bd2c0928d4c67a36738947715bbc2',
-        'HOST' : 'localhost',
-        'POST' : '',
-    }
+    'default': dj_database_url.config(),
 }
+DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)
+
+import sys
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase'
+    }
 
 # Set database settings automatically using DATABASE_URL.
 if PRODUCTION:

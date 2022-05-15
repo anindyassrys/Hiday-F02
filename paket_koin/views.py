@@ -1,11 +1,12 @@
 from django.shortcuts import redirect, render
+from django.db import connection
 
 # Create your views here.
 def create_paket_koin(request):
-    cursor = connection.cursor
+    cursor = connection.cursor()
     cursor.execute("SET search_path TO public")
     if request.session.has_key('email'):
-        role = request.session['role']
+        role = request.session['email'][1]
         if role == "admin":
             if request.method == "POST":
                 jumlah_koin = request.POST["jumlah_koin"]
@@ -14,22 +15,24 @@ def create_paket_koin(request):
             else:
                 return render(request, ".html", {})
         else:
-            return redirect("paket_koin:list_paket")
+            return redirect("paket_koin:list_paket_koin")
     else:
         return redirect("home:login")
 
-def list_paket(request):
-    cursor = connection.cursor()
-    cursor.execute("SET search_path TO public")
-
+# Read paket_koin
+def list_paket_koin(request):
     if request.session.has_key('email'):
-        if request.session['role'] == "admin":
+        cursor = connection.cursor()
+
+        if (request.session['email'][1] == "admin"):
+            cursor.execute("SELECT * FROM paket_koin")
+            result = cursor.fetchall()
             role = "admin"
         else:
-            role = None
-    
-    cursor.execute("SET search_path TO hidayf02")
-    cursor.execute("SELECT * FROM paket_koin")
-    data = cursor.fetchall()
-    return render(request, '.html', {'data' : data, 'role' : role})
+            cursor.execute("SELECT * FROM paket_koin")
+            result = cursor.fetchall()
+            role = "pengguna"
+        
+    return render(request, 'list_paket_koin.html', {'results': result, 'role': role})
+
 

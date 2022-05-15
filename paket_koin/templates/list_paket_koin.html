@@ -196,93 +196,51 @@
   </nav>
   {% endif %}
 
+  <!-- role pengguna read table -->
   {% if role == 'pengguna' %}
-    <h3>Level: -</h3>
-    <h3>Kapasitas: -</h3>
-
     <div class="table-wraper">
         <table class ="table">
             <thead>
                 <th>No</th>
-                <th>ID Produk</th>
-                <th>Nama Produk</th>
-                <th>Harga Jual</th>
-                <th>Sifat Produk</th>
-                <th>Jumlah Produk</th>
+                <th>Paket Koin</th>
+                <th>Harga</th>
+                <th>Action</th>
             </thead>
             <tbody>
-                {%for j,i in produk_hasil_panen %}
+                {% for i in results %}
                 <tr>
-                    <td id="number">{{j}}</td>
-                    <td>{{i.id}}</td>
-                    <td>{{i.nama}}</td>
-                    <td>{{i.harga_jual}}</td>
-                    <td>{{i.sifat_produk}}</td>
-                    <td>{{i.jumlah}}</td>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.0}}</td>
+                    <td>{{i.1}}</td>
+                    <td><a href="#">Beli</a></td>
                 </tr>
                 {% endfor %}
-        
-                
             </tbody>
-        
             </table>
         </div>
-        
-        
-        <div class="table-wraper">
-            <table class ="table">
-                <thead>
-                    <th>No</th>
-                    <th>ID Produk</th>
-                    <th>Nama Produk</th>
-                    <th>Harga Jual</th>
-                    <th>Sifat Produk</th>
-                    <th>Jumlah Produk</th>
-                </thead>
-                <tbody>
-                    {%for j,i in produk_hewan %}
-                    <tr>
-                        <td id="number">{{j}}</td>
-                        <td>{{i.id}}</td>
-                        <td>{{i.nama}}</td>
-                        <td>{{i.harga_jual}}</td>
-                        <td>{{i.sifat_produk}}</td>
-                        <td>{{i.jumlah}}</td>
-                    </tr>
-                    {% endfor %}
-            
-                    
-                </tbody>
-            
-                </table>
-            </div>
-            <div class="table-wraper">
-                <table class ="table">
-                    <thead>
-                        <th>No</th>
-                        <th>ID Produk</th>
-                        <th>Nama Produk</th>
-                        <th>Harga Jual</th>
-                        <th>Sifat Produk</th>
-                        <th>Jumlah Produk</th>
-                    </thead>
-                    <tbody>
-                        {%for j,i in produk_makanan %}
-                        <tr>
-                            <td id="number">{{j}}</td>
-                            <td>{{i.id}}</td>
-                            <td>{{i.nama}}</td>
-                            <td>{{i.harga_jual}}</td>
-                            <td>{{i.sifat_produk}}</td>
-                            <td>{{i.jumlah}}</td>
-                        </tr>
-                        {% endfor %}
-                
-                        
-                    </tbody>
-                
-                    </table>
-                </div>
+    
+    {% else %}
+    <div class="table-wraper">
+        <table class ="table">
+            <thead>
+                <th>No</th>
+                <th>Paket Koin</th>
+                <th>Harga</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                {% for i in results %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.0}}</td>
+                    <td>{{i.1}}</td>
+                    <td><a href="#">Update</a></td>
+                    <td><a href="#">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+        </div>
 {% endif %}
 
 
