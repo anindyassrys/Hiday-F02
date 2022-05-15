@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from main import urls
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main.urls')),
-    path('paket-koin/', include('paket_koin.urls'))
+    path('paket-koin/', include('paket_koin.urls')),
+    path('', include('main.urls', namespace="home")),
 ]

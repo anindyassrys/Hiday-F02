@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+<title>Basdat TK3 - F02</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="form-wraper">
+  <form method="post">
+    {% csrf_token %}
+      <h1>
+          Login
+      </h1>
+      <div class="input-button-wraper">
+          <input type = "email" placeholder="e-mail" name="email"> 
+      </div>
+      <div class="input-button-wraper">
+          <input type = "password" placeholder="password" name="password"> 
+      </div>
+      <div class="input-button-wraper">
+          <button type= "submit" id="tombol" >
+              OK
+          </button>
+      </div> 
+    </form>
+</div>
+{% endblock content %}
