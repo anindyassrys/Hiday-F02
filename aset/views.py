@@ -1,6 +1,5 @@
 from django.db import connection
 from django.shortcuts import redirect, render
-# from django.contrib import messages
 
 def buat_aset(request):
     return render(request, 'admin_buat_aset.html')
