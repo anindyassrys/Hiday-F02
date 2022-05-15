@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/buat_histori_makanan.css' %}">
+
+  <title>TK3-F02</title>
+</head>
+
+<body>
+    <h1>Form Produksi Produk Makanan</h1>
+
+    {% if role == 'admin' %}
+    {% include 'navbar.html' %}
+
+    <h1>Admin tidak dapat Produksi Produk Makanan</h1>
+
+    {% endif %}
+
+    {% if role == 'pengguna' %}
+    {% include 'navbar.html' %}
+
+    <!-- <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Buat">
+    </form> -->
+
+    <form action = "" method = "POST" name="form" onsubmit = "return validateForm()">
+        {% csrf_token %}
+        <div class="container" align='center'>
+            <label for="">ID Produk Makanan</label>
+            <br>
+            <select id="" name="ID">
+                <option value="">A</option>
+                <option value="">B</option>
+                <option value="">C</option>
+            </select>
+            </br>
+
+            <label for="">Jumlah</label>
+            </br>
+            <input type="number" class="form-control" placeholder="Harap diisi" name="Jumlah" id="jmlh" onchange="countXP()">
+            </br>
+            
+            <label for="">XP</label>
+            </br>
+            <input type="number" class="form-control" placeholder="" name="" id="xp" disabled>
+            </br>
+
+            <div align='center'>
+                <button type='submit'>Buat</button>      
+            </div>
+        </div> 
+    </form>
+
+    {% endif %}
+
+</body>
+
+
+
+</html>
