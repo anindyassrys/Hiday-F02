@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+  <title>List Histori Pesanan</title>
+{% endblock meta %}
+
+{% block content %}
+    {% if role == 'admin' %}
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Jenis</th>
+            <th>Nama</th>
+            <th>Total</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for res in result %}
+            <tr>
+                <td>{{ res.id }}</td>
+                <td>{{ res.status }}</td>
+                <td>{{ res.jenis }}</td>
+                <td>{{ res.nama }}</td>
+                <td>{{ res.total }}</td>
+                <td>
+                    <a href="/crud-pesanan/detail/{{res.id}}">Detail</a>
+                    </br>
+                    {% if res.status != 'Selesai' %}
+                    <a href="/crud-pesanan/update/{{res.id}}">Update</a>
+                    {% endif %}
+                    </br>
+                    <a href="/crud-pesanan/delete/{{res.id}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% if role == 'pengguna' %}
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Jenis</th>
+            <th>Nama</th>
+            <th>Total</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for res in result %}
+            <tr>
+                <td>{{ res.id }}</td>
+                <td>{{ res.status }}</td>
+                <td>{{ res.jenis }}</td>
+                <td>{{ res.nama }}</td>
+                <td>{{ res.total }}</td>
+                <td>
+                    <a href="/crud-pesanan/detail/{{res.id}}">Detail</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock content %}
