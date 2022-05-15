@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List transaksi upgrade lumbung</title>
+{% endblock meta %}
+
+{% block content %}
+{% if role == 'admin' %}
+
+  <!-- role pengguna read table -->
+        <table class ="table">
+            <thead>
+                <th>No</th>
+                <th>Email Pengguna</th>
+                <th>Waktu Upgrade</th>
+            </thead>
+            <tbody>
+                {% for i in results %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.0}}</td>
+                    <td>{{i.1}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+    
+    {% else %}
+    <table class ="table">
+        <thead>
+            <th>No</th>
+            <th>Waktu Upgrade</th>
+        </thead>
+        <tbody>
+            {% for i in results %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.0}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    {% endif %}
+    
+{% endblock content %}
+

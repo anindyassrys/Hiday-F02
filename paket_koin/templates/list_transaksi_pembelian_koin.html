@@ -2,20 +2,22 @@
 {% load static %}
 
 {% block meta %}
-<title>List paket koin</title>
+<title>List transaksi pembelian koin</title>
 {% endblock meta %}
 
 {% block content %}
-{% if role == 'pengguna' %}
+{% if role == 'admin' %}
 
   <!-- role pengguna read table -->
-    <div class="table-wraper">
         <table class ="table">
             <thead>
                 <th>No</th>
+                <th>Email Pengguna</th>
+                <th>Waktu Pembelian</th>
+                <th>Jumlah</th>
+                <th>Cara Pembayaran</th>
                 <th>Paket Koin</th>
-                <th>Harga</th>
-                <th>Action</th>
+                <th>Total Biaya</th>
             </thead>
             <tbody>
                 {% for i in results %}
@@ -23,21 +25,25 @@
                     <td>{{forloop.counter}}</td>
                     <td>{{i.0}}</td>
                     <td>{{i.1}}</td>
-                    <td><a href="{% url 'paket-koin:create_transaksi_pembelian_paket_koin' i.0 i.1 %}">Beli</a></td>
+                    <td>{{i.2}}</td>
+                    <td>{{i.3}}</td>
+                    <td>{{i.4}}</td>
+                    <td>{{i.5}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
             </table>
-        </div>
     
-{% else %}
-    <div class="table-wraper">
+    {% else %}
         <table class ="table">
             <thead>
                 <th>No</th>
+                <th>Email Pengguna</th>
+                <th>Waktu Pembelian</th>
+                <th>Jumlah</th>
+                <th>Cara Pembayaran</th>
                 <th>Paket Koin</th>
-                <th>Harga</th>
-                <th>Action</th>
+                <th>Total Biaya</th>
             </thead>
             <tbody>
                 {% for i in results %}
@@ -45,13 +51,14 @@
                     <td>{{forloop.counter}}</td>
                     <td>{{i.0}}</td>
                     <td>{{i.1}}</td>
-                    <td><a href="#">Update</a></td>
-                    <td><a href="#">Delete</a></td>
+                    <td>{{i.2}}</td>
+                    <td>{{i.3}}</td>
+                    <td>{{i.4}}</td>
+                    <td>{{i.6}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
             </table>
-        </div>
     {% endif %}
     
 {% endblock content %}

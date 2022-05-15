@@ -20,6 +20,8 @@ from main import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('paket-koin/', include('paket_koin.urls')),
+    path('paket-koin/', include('paket_koin.urls', namespace="paket-koin")),
     path('', include('main.urls', namespace="home")),
+    path('lumbung/', include('lumbung.urls', namespace="lumbung")),
+    path('histori-tanaman/', include('histori_tanaman.urls', namespace="histori_tanaman"))
 ]

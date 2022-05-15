@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  {% if role == 'pengguna' %}
+  {% if role == 'admin' %}
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!-- <div class="container"> -->
         <!-- <a class="navbar-brand" href="#">TK3-F02</a> -->
@@ -128,8 +128,8 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="#">Lihat Isi Lumbung</a>
-                      <a class="dropdown-item" href="#">Upgrade Lumbung</a>
-                      <a class="dropdown-item" href="#">List Transaksi Upgrade Lumbung</a>
+                      <a class="dropdown-item" href="{% url 'lumbung:upgrade_lumbung' %}">Upgrade Lumbung</a>
+                      <a class="dropdown-item" href="{% url 'lumbung' %}">List Transaksi Upgrade Lumbung</a>
                   </div>
               </li>
               <li class="nav-item dropdown">
@@ -137,8 +137,8 @@
                       Koin
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="paket-koin/list-paket-koin">List Paket Koin</a>
-                      <a class="dropdown-item" href="#">List Transaksi Pembelian Koin</a>
+                      <a class="dropdown-item" href="/paket-koin">List Paket Koin</a>
+                      <a class="dropdown-item" href="{% url 'paket-koin:list_transaksi_pembelian_koin' %}">List Transaksi Pembelian Koin</a>
                   </div>
               </li>
               <li class="nav-item dropdown">

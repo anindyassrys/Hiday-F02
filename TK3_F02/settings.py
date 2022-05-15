@@ -59,7 +59,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'paket_koin'
+    'paket_koin',
+    'lumbung',
+    'histori_tanaman'
 ]
 
 MIDDLEWARE = [
