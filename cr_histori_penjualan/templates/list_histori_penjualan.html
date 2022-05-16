@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+  <title>List Histori Penjualan</title>
+{% endblock meta %}
+
+{% block content %}
+    {% if role == 'admin' %}
+    <table class="table">
+        <thead>
+            <th>Email</th>
+            <th>Waktu Penjualan</th>
+            <th>ID Pesanan</th>
+            <th>Koin Diperoleh</th>
+            <th>XP Diperoleh</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for res in result %}
+            <tr>
+                <td>{{ res.email }}</td>
+                <td>{{ res.waktu_penjualan }}</td>
+                <td>{{ res.id_pesanan }}</td>
+                <td>{{ res.koin }}</td>
+                <td>{{ res.xp }}</td>
+                <td>
+                    <a href="/cr-histori-penjualan/detail/{{res.id_pesanan}}">Detail</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+    {% if role == 'pengguna' %}
+    <table class="table">
+        <thead>
+            <th>Waktu Penjualan</th>
+            <th>ID Pesanan</th>
+            <th>Koin Diperoleh</th>
+            <th>XP Diperoleh</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for res in result %}
+            <tr>
+                <td>{{ res.waktu_penjualan }}</td>
+                <td>{{ res.id_pesanan }}</td>
+                <td>{{ res.koin }}</td>
+                <td>{{ res.xp }}</td>
+                <td>
+                    <a href="/cr-histori-penjualan/detail/{{res.id_pesanan}}">Detail</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock content %}

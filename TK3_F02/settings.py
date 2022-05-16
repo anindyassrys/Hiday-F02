@@ -58,7 +58,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main'
+    'main',
+    'cr_histori_hewan',
+    'crud_pesanan',
+    'cr_histori_penjualan'
 ]
 
 MIDDLEWARE = [

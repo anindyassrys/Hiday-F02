@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+  <title>Update Pesanan</title>
+{% endblock meta %}
+
+{% block content %}
+{% if role == 'admin' %}
+<form action = "" method = "POST">
+    {% csrf_token %}
+    <div class="container" align='center'>
+        {% for res in result1 %}
+            </br>
+            <label for="">ID Pesanan</label>
+            </br>
+            <input type="text" class="form-control" placeholder="Masukkan ID pesanan" name="" required value="{{res.id}}" disabled>
+            </br>
+            </br>
+            <label for="">Nama Pesanan</label>
+            </br>
+            <input type="text" class="form-control" placeholder="Masukkan nama pesanan" name="" required value="{{res.nama}}">
+            </br>
+            </br>
+            <label for="">Jenis Pesanan</label>
+            </br>
+            <input type="text" class="form-control" placeholder="Masukkan jenis pesanan" name="" required value="{{res.jenis}}">
+            </br>
+            </br>
+            <label for="">Status Pesanan</label>
+            </br>
+            <input type="text" class="form-control" placeholder="Masukkan status pesanan" name="" required value="{{res.status}}">
+            </br>
+            </br>
+            <label for="">Total Koin</label>
+            </br>
+            <input type="text" class="form-control" placeholder="Masukkan total koin" name="" required value="{{res.total}}" disabled>
+            </br>
+            </br>
+        {% endfor %}
+    
+        <table class="table">
+            <thead>
+                <th>Nama Produksi</th>
+                <th>Jumlah Produksi</th>
+            </thead>
+            <tbody>
+                {% for res in result2 %}
+                <tr>
+                    <td>{{ res.nama }}</td>
+                    <td>{{ res.jumlah }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </br>
+        <div align='center'>
+            <button type='submit'>Simpan</button>      
+        </div>
+    </div> 
+</form>
+{% endif %}
+{% if role == 'pengguna' %}
+<h1>Pengguna tidak bisa mengakses fitur ini!</h1>
+{% endif %}
+{% endblock content %}
