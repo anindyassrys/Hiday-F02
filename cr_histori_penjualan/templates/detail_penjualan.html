@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+  <title>Detail Penjualan</title>
+{% endblock meta %}
+
+{% block content %}
+    {% for res in result1 %}
+    <h5>Email Pengguna: {{res.email}}</h5>
+    <h5>Waktu Penjualan: {{res.waktu_penjualan}}</h5>
+    {% endfor %}
+    <p>========================================================================================================================================</p>
+    {% for res in result2 %}
+    <h5>ID Pesanan: {{res.id}}</h5>
+    <h5>Nama Pesanan: {{res.nama}}</h5>
+    <h5>Jenis Pesanan: {{res.jenis}}</h5>
+    <h5>Status Pesanan: {{res.status}}</h5>
+    <h5>Total Koin: {{res.total}}</h5>
+    {% endfor %}
+
+    <table class="table">
+    <thead>
+        <th>Nama Produksi</th>
+        <th>Jumlah Produksi</th>
+        <th>Subtotal</th>
+    </thead>
+    <tbody>
+        {% for res in result3 %}
+        <tr>
+            <td>{{ res.nama }}</td>
+            <td>{{ res.jumlah }}</td>
+            <td>{{ res.subtotal }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock content %}

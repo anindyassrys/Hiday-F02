@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/buat_histori_makanan.css' %}">
+  <script>
+    function validateForm() {
+      var x = document.forms["formproduk"]["nama"].value;
+      var y = document.forms["formproduk"]["Harga Jual"].value;
+      var z = document.forms["formproduk"]["Sifat Produk"].value;
+      if (x == "" || x == null || y=="" || y==null|| z=="" || z==null) {
+        alert("Semua bidang harus diisi");
+        return false;
+      }
+    }
+</script>
+
+  <title>TK3-F02</title>
+</head>
+
+<body>
+    <h1>FORM BUAT PRODUK</h1>
+    <form name="formproduk" onsubmit="return validateForm()" required>
+      <label for="Nama Produk Makanan">Nama Produk Makanan:</label>
+              <select name="Nama Produk Makanan" id="Nama Produk Makanan" >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="2">2</option>
+              </select>
+      <br>
+      <label for="Alat Produksi">Alat Produksi:</label>
+              <select name="Alat Produksi" id="Alat Produksi" >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="2">2</option>
+              </select>
+<br><br>
+      <label for="durasi">Durasi Produksi(dalam menit):</label><br>
+      <input type="number" id="durasi" name="durasi"><br>  
+      <label for="Jumlah">Jumlah Produk yang Dihasilkan:</label><br>
+      <input type="number" id="Jumlah" name="Jumlah"><br>  
+      <label for="Daftar Bahan">Daftar Bahan yang Dibutuhkan:</label><br> 
+      
+      <label for="Alat Produksi">Bahan:</label>
+              <select name="Alat Produksi" id="Alat Produksi" >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="2">2</option>
+              </select>
+      <label for="jumlah1">jumlah:</label>
+      <input type="number" id="jumlah1" name="jumlah1"><br> 
+      <label for="Alat Produksi">Bahan:</label>
+              <select name="Alat Produksi" id="Alat Produksi" >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="2">2</option>
+              </select>
+      <label for="jumlah3">jumlah:</label>
+      <input type="number" id="jumlah3" name="jumlah3"><br>
+      <label for="Alat Produksi">Bahan:</label>
+              <select name="Alat Produksi" id="Alat Produksi" >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="2">2</option>
+              </select>
+      <label for="jumlah2">jumlah:</label>
+      <input type="number" id="jumlah2" name="jumlah2"><br>  
+      <button type="button">TAMBAH BAHAN</button><br>
+      <input type="submit" value="Tambahkan">
+    </form>   
+
+</body>
+
+
+
+</html>

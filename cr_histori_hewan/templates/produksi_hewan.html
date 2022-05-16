@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+  <title>Produksi Hewan</title>
+{% endblock meta %}
+
+{% block content %}
+    {% if role == 'pengguna' %}
+    <form action = "" method = "POST">
+        {% csrf_token %}
+        <div class="container" align='center'>
+            </br>
+            </br>
+            <p>ID Hewan</p>
+            <select id="" name="ID">
+                {% for res in result %}
+                    <option value="">={{ res.nama }}</option>
+                {% endfor %}
+            </select>
+            </br>
+            </br>
+            <label for="">Jumlah</label>
+            </br>
+            </br>
+            <input type="text" class="form-control" placeholder="Masukkan jumlah" name="" required>
+            </br>
+            <label for="">XP</label>
+            </br>
+            </br>
+            <input type="text" class="form-control" placeholder="Masukkan XP" name="" required value="5" disabled>
+            </br>
+            <div align='center'>
+                <button type='submit'>Buat</button>      
+            </div>
+        </div> 
+    </form>
+    {% endif %}
+    {% if role == 'admin' %}
+    <h1 >Admin tidak bisa mengakses fitur ini!</h1>
+    {% endif %}
+{% endblock content %}

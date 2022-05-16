@@ -62,6 +62,9 @@ INSTALLED_APPS = [
     'paket_koin',
     'lumbung',
     'histori_tanaman'
+    'cr_histori_hewan',
+    'crud_pesanan',
+    'cr_histori_penjualan'
 ]
 
 MIDDLEWARE = [
