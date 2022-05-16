@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     'main',
     'paket_koin',
     'lumbung',
-    'histori_tanaman',x
+    'histori_tanaman',
     'cr_histori_hewan',
     'crud_pesanan',
     'cr_histori_penjualan'
