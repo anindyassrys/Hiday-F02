@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Tambah Paket Koin</title>
+{% endblock meta %}
+
+{% block content %}
+<h2>Form produk tanaman</h2>
+  
+<form method="post">
+  {% csrf_token %}
+  <p>Bibit tanaman:</p>
+  <input type="text" name="value" value={{value}} disabled>
+  <p>Jumlah:</p>
+  <input type="number" name="jumlah" required>
+  <p>XP:</p>
+  <input type="text" name="xp" disabled>
+  <button type="submit">Produksi</button>
+</form>
+{% endblock content %}

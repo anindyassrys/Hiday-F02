@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List transaksi pembelian koin</title>
+{% endblock meta %}
+
+{% block content %}
+{% if role == 'admin' %}
+
+  <!-- role pengguna read table -->
+        <table class ="table">
+            <thead>
+                <th>No</th>
+                <th>Email Pengguna</th>
+                <th>Waktu Pembelian</th>
+                <th>Jumlah</th>
+                <th>Cara Pembayaran</th>
+                <th>Paket Koin</th>
+                <th>Total Biaya</th>
+            </thead>
+            <tbody>
+                {% for i in results %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.0}}</td>
+                    <td>{{i.1}}</td>
+                    <td>{{i.2}}</td>
+                    <td>{{i.3}}</td>
+                    <td>{{i.4}}</td>
+                    <td>{{i.5}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+    
+    {% else %}
+        <table class ="table">
+            <thead>
+                <th>No</th>
+                <th>Email Pengguna</th>
+                <th>Waktu Pembelian</th>
+                <th>Jumlah</th>
+                <th>Cara Pembayaran</th>
+                <th>Paket Koin</th>
+                <th>Total Biaya</th>
+            </thead>
+            <tbody>
+                {% for i in results %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.0}}</td>
+                    <td>{{i.1}}</td>
+                    <td>{{i.2}}</td>
+                    <td>{{i.3}}</td>
+                    <td>{{i.4}}</td>
+                    <td>{{i.6}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+    {% endif %}
+    
+{% endblock content %}
+
