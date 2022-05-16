@@ -39,8 +39,7 @@ PRODUCTION = os.getenv('DATABASE_URL') is not None
 # SECURITY WARNING: don't run with debug turned on in production!
 # If you want to enable debugging on Heroku for learning purposes,
 # set this to True.
-DEBUG = not PRODUCTION
-
+DEBUG = True
 HEROKU_APP_NAME = os.getenv('HEROKU_APP_NAME', '')
 
 ALLOWED_HOSTS = [f'{HEROKU_APP_NAME}.herokuapp.com']
@@ -61,7 +60,7 @@ INSTALLED_APPS = [
     'main',
     'paket_koin',
     'lumbung',
-    'histori_tanaman',
+    'histori_tanaman',x
     'cr_histori_hewan',
     'crud_pesanan',
     'cr_histori_penjualan'
