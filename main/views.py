@@ -1,7 +1,6 @@
 from gc import get_objects
 from pickle import NONE
 from re import X
-from colorama import Cursor
 from django.db import connection
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.shortcuts import redirect, render
