@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+<link rel="stylesheet" href="{% static 'css/list_lumbung.css' %}">
+<title>Basdat TK3 - F02</title>
+{% endblock meta %}
+
+{% block content %}
+
+
+<h2>Nama Produk Makanan: {{object.nama_produk}}</h2>
+<h2>Alat Produksi: {{object.alat_produksi}}</h2>
+<h2>Durasi Produksi: {{object.durasi}}</h2>
+<h2>Jumlah Produk yang Dihasilkan: {{object.jumlah}}</h2>
+<br>
+<br>
+<h2>Daftar Bahan yang Dibutuhkan:</h2>
+<div class="table-wraper">
+    <table class ="table">
+        <thead>
+            <th>No</th>
+            <th>Bahan</th>
+            <th>Jumlah</th>
+        </thead>
+        <tbody>
+            {%for j,i in object_bahan %}
+            <tr>
+                <td id="number">{{j}}</td>
+                <td>{{i.bahan}}</td>
+                <td>{{i.jumlah}}</td>
+            </tr>
+            {% endfor %}
+    
+            
+        </tbody>
+    
+        </table>
+    </div>
+{% endblock content %}
