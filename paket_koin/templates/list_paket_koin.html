@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List paket koin</title>
+{% endblock meta %}
+
+{% block content %}
+{% if role == 'pengguna' %}
+
+  <!-- role pengguna read table -->
+    <div class="table-wraper">
+        <table class ="table">
+            <thead>
+                <th>No</th>
+                <th>Paket Koin</th>
+                <th>Harga</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                {% for i in results %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.0}}</td>
+                    <td>{{i.1}}</td>
+                    <td><a href="{% url 'paket-koin:create_transaksi_pembelian_paket_koin' i.0 i.1 %}">Beli</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+        </div>
+    
+{% else %}
+    <div class="table-wraper">
+        <table class ="table">
+            <thead>
+                <th>No</th>
+                <th>Paket Koin</th>
+                <th>Harga</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                {% for i in results %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.0}}</td>
+                    <td>{{i.1}}</td>
+                    <td><a href="#">Update</a></td>
+                    <td><a href="#">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+        </div>
+    {% endif %}
+    
+{% endblock content %}
+
