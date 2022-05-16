@@ -59,6 +59,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'cr_histori_hewan',
+    'crud_pesanan',
+    'cr_histori_penjualan'
 ]
 
 MIDDLEWARE = [

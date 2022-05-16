@@ -16,7 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from main import urls
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main.urls', namespace="home"))
+    path('', include('main.urls', namespace="home")),
+    path('cr-histori-hewan/', include('cr_histori_hewan.urls')),
+    path('crud-pesanan/', include('crud_pesanan.urls')),
+    path('cr-histori-penjualan/', include('cr_histori_penjualan.urls'))
 ]

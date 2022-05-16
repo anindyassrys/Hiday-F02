@@ -46,9 +46,10 @@ def login(request):
                     return HttpResponseRedirect("/home")
 
                 return HttpResponseNotFound("The user does not exist")
+            
             cursor.execute("SET search_path TO public")
             return redirect("home:login")
-        
+
         else:
             cursor.execute("SET search_path TO public")
             return render(request, "login.html", {})

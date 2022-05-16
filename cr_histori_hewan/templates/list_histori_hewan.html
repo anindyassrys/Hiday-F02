@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+  <title>List Histori Hewan</title>
+{% endblock meta %}
+
+{% block content %}
+    {% if role == 'admin' %}
+    <table class="table">
+        <thead>
+            <th>Email</th>
+            <th>Waktu Awal</th>
+            <th>Waktu Selesai</th>
+            <th>Jumlah</th>
+            <th>XP</th>
+            <th>Nama</th>
+        </thead>
+        <tbody>
+            {% for res in result %}
+            <tr>
+                <td>{{ res.email }}</td>
+                <td>{{ res.waktu_awal }}</td>
+                <td>{{ res.waktu_selesai }}</td>
+                <td>{{ res.jumlah }}</td>
+                <td>{{ res.xp }}</td>
+                <td>{{ res.nama }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+    {% if role == 'pengguna' %}
+    <table class="table">
+        <thead>
+            <th>Email</th>
+            <th>Waktu Awal</th>
+            <th>Waktu Selesai</th>
+            <th>Jumlah</th>
+            <th>XP</th>
+            <th>Nama</th>
+        </thead>
+        <tbody>
+            {% for res in result %}
+            <tr>
+                <td>{{ res.email }}</td>
+                <td>{{ res.waktu_awal }}</td>
+                <td>{{ res.waktu_selesai }}</td>
+                <td>{{ res.jumlah }}</td>
+                <td>{{ res.xp }}</td>
+                <td>{{ res.nama }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock content %}
