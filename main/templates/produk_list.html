@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hello, world!</title>
+{% endblock meta %}
+
+{% block content %}
+
+  <div class="table-wraper">
+    <table class ="table">
+        <thead>
+            <th>No</th>
+            <th>Jenis</th>
+            <th>Nama</th>
+            <th>Harga Jual</th>
+            <th>Sifat</th>
+        </thead>
+        <tbody>
+            {%for j,i in results %}
+            <tr>
+                <td id="number">{{j}}</td>
+                <td>{{i.id}}</td>
+                <td>{{i.nama}}</td>
+                <td>{{i.harga_jual}}</td>
+                <td>{{i.sifat_produk}}</td>
+            </tr>
+            {% endfor %}
+
+           
+        </tbody>
+
+    </table>
+</div>
+
+{% endblock content %}

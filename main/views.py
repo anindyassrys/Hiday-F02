@@ -1,4 +1,3 @@
-# from errno import EBADRQC
 from gc import get_objects
 from pickle import NONE
 from re import X
@@ -101,12 +100,11 @@ def lihat_isi_lumbung(request):
             # Produk Makanan
             produk_makanan = object_entitas('select email, id, nama, harga_jual, sifat_produk, jumlah from lumbung l, lumbung_memiliki_produk lmp, produk p where l.email = lmp.id_lumbung and lmp.id_produk = p.id and p.id in (select * from produk_makanan)')
             cursor.execute("SET search_path TO public")
-
             return render(request, 'lihat_isi_lumbung.html', {'role': role, 'produk_hasil_panen': produk_hasil_panen, 'produk_hewan': produk_hewan, 'produk_makanan': produk_makanan })
         else:               #lihat lumbung untuk pengguna (hanya punya dirinya sendiri)
             level_pengguna = request.session['email'][5]
             # print(request.session['email'])
-            print("ga masuk")
+            
             total_kapasitas_lumbung = 0
 
             level = request.session['email'][5]
@@ -299,20 +297,3 @@ def object_entitas(query): # mengembalikan value relasi dalam bentuk object (cla
         number_result[i+1] = result[i]
     
     return list(number_result.items())
-
-def create_produk(request): # membuat produk (admin)
-    return render(request, 'create_produk.html')
-
-
-def update_produk(request): # membuat produk (admin)
-    return render(request, 'update_produk.html')
-
-
-def create_produksi(request): # membuat produk (admin)
-    return render(request, 'create_produksi.html')
-
-def update_produksi(request): # membuat produk (admin)
-    return render(request, 'update_produksi.html')
-
-def create_histori_produk_makanan(request): # membuat produk (admin)
-    return render(request, 'create_histori_produk_makanan.html')
