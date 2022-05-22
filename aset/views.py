@@ -96,6 +96,7 @@ def list_alat_produksi(request):
         elif request.session.get("role") == "pengguna":
             return render(request, 'pengguna_tabel_list_aset.html', argument)
 
+
 def list_petak_sawah(request):
     with connection.cursor() as cursor:
         cursor.execute("SELECT * FROM ASET A INNER JOIN PETAK_SAWAH P ON A.ID = P.ID_Aset")
@@ -106,3 +107,4 @@ def list_petak_sawah(request):
             return render(request, 'admin_tabel_list_aset.html', argument)
         elif request.session.get("role") == "pengguna":
             return render(request, 'pengguna_tabel_list_aset.html', argument)
+
