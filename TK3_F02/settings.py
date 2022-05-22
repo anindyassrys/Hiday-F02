@@ -63,7 +63,8 @@ INSTALLED_APPS = [
     'histori_tanaman',
     'cr_histori_hewan',
     'crud_pesanan',
-    'cr_histori_penjualan'
+    'cr_histori_penjualan',
+    'aset',
 ]
 
 MIDDLEWARE = [
