@@ -8,7 +8,7 @@ body{
 }
 .form-wraper{
     background-color: #3e3d3d;
-    width: 350px;
+    width: 400px;
     padding: 40px 20px;
     box-sizing: border-box;
     position: fixed;
@@ -27,6 +27,8 @@ h1{
     margin-bottom: 20px;
     /* font-size: 16px; */
 }
+
+
 input{
     width: 95%;
     background: none;
@@ -44,7 +46,7 @@ input{
     border: 0;
     cursor: pointer;
     color: #3e3d3d;
-    width: 90%;
+    width: 95%;
     padding: 3px;
     border-radius: 20px;
     box-sizing: border-box;

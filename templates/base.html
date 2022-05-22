@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'css/list.css' %}">
+  <link rel="stylesheet" href="{% static 'css/list_lumbung.css' %}">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
@@ -27,14 +27,14 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto mb-2 mb-lg-0 ">
             <li class="nav-item ">
-                <a class="nav-link px-3 active" href="#">Home <span class="sr-only"></span></a>
+                <a class="nav-link px-3 active" href="{% url 'main:home' %}">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Lumbung
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Lihat Isi Lumbung</a>
+                    <a class="dropdown-item" href="lihat_isi_lumbung">Lihat Isi Lumbung</a>
                     <a class="dropdown-item" href="#">List Transaksi Upgrade Lumbung</a>
                 </div>
             </li>
@@ -76,9 +76,9 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="#">Buat Produk</a>
-                  <a class="dropdown-item" href="#">List Produk</a>
+                  <a class="dropdown-item" href="{% url 'main:produk' %}"">List Produk</a>
                   <a class="dropdown-item" href="#">Buat Produksi</a>
-                  <a class="dropdown-item" href="#">List Produksi</a>
+                  <a class="dropdown-item" href="{% url 'main:produksi' %}"">List Produksi</a>
               </div>
           </li>
           <li class="nav-item dropdown">
@@ -88,7 +88,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="#">List Histori Produksi Hewan</a>
                   <a class="dropdown-item" href="#">List Histori Produksi Tanaman</a>
-                  <a class="dropdown-item" href="#">List Histori Produksi Penjualan</a>
+                  <a class="dropdown-item" href="{% url 'main:histori_produk_makanan' %}">List Histori Produksi Makanan</a>
               </div>
           </li>
           <li class="nav-item dropdown">
@@ -120,14 +120,14 @@
       <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto mb-2 mb-lg-0 ">
               <li class="nav-item ">
-                  <a class="nav-link px-3 active" href="#">Home <span class="sr-only"></span></a>
+                  <a class="nav-link px-3 active" href="{% url 'main:home' %}">Home <span class="sr-only"></span></a>
               </li>
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Lumbung
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Lihat Isi Lumbung</a>
+                      <a class="dropdown-item" href="lihat_isi_lumbungpy">Lihat Isi Lumbung</a>
                       <a class="dropdown-item" href="{% url 'lumbung:upgrade_lumbung' %}">Upgrade Lumbung</a>
                       <a class="dropdown-item" href="#">List Transaksi Upgrade Lumbung</a>
                   </div>
@@ -166,8 +166,8 @@
                     Produk
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">List Produk</a>
-                    <a class="dropdown-item" href="#">List Produksi</a>
+                    <a class="dropdown-item" href="{% url 'main:produk' %}"">List Produk</a>
+                    <a class="dropdown-item" href="{% url 'main:produksi' %}"">List Produksi</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -180,7 +180,7 @@
                     <a class="dropdown-item" href="#">Produksi Tanaman</a>
                     <a class="dropdown-item" href="#">List Histori Produksi Tanaman</a>
                     <a class="dropdown-item" href="#">Produksi Produk Makanan</a>
-                    <a class="dropdown-item" href="#">List Histori Produksi Makanan</a>
+                    <a class="dropdown-item" href="{% url 'main:histori_produk_makanan' %}">List Histori Produksi Makanan</a>
                 </div>
             </li>
             <li class="nav-item dropdown">

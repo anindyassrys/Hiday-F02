@@ -1,81 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block meta %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="{% static 'css/form.css' %}">
+<link rel="stylesheet" href="{% static 'css/dropdown.css' %}"> -->
+<title>Basdat TK3 - F02</title>
 
+{% endblock meta %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <link rel="stylesheet" href="{% static 'css/buat_histori_makanan.css' %}">
-  <script>
-    function validateForm() {
-      var x = document.forms["formproduk"]["nama"].value;
-      var y = document.forms["formproduk"]["Harga Jual"].value;
-      var z = document.forms["formproduk"]["Sifat Produk"].value;
-      if (x == "" || x == null || y=="" || y==null|| z=="" || z==null) {
-        alert("Semua bidang harus diisi");
-        return false;
-      }
-    }
-</script>
+{% block content %}
+<div class="form-wraper">
+  <form method="post">
+    {% csrf_token %}
+      <h1>
+          Buat Produksi
+      </h1>
+      <div class="wraper">
+        <select name="select" id="jenis_produk" disabled>
+            <option disabled selected>nama produk makanan</option>
+            <option value="hasil_panen">hasil panen</option>
+            <option value="produk_hewan">produk hewan</option>
+            <option value="produk_makanan">produk makanan</option>
+        </select>
+      </div>
+      <div class="wraper">
+        <select name="select" id="jenis_produk" disabled>
+            <option disabled selected>alat produksi</option>
+            <option value="hasil_panen">hasil panen</option>
+            <option value="produk_hewan">produk hewan</option>
+            <option value="produk_makanan">produk makanan</option>
+        </select>
+      </div>
+      <div class="input-button-wraper">
+          <input type = "durasi_produksi" placeholder="durasi produksi (dalam menit)" name="durasi_produksi"> 
+      </div>
+      <div class="input-button-wraper">
+        <input type = "jumlah_produk_dihasilkan" placeholder="jumlah produk dihasilkan" name="jumlah_produk_dihasilkan"> 
+    </div>
+    <h1>Daftar Bahan yang Dibutuhkan: </h1>
 
-  <title>TK3-F02</title>
-</head>
+    <div class="wraper-button-dropdown">
+      <div class="wraper">
+        <select name="select" id="jenis_produk" disabled>
+            <option disabled selected>nama produk makanan</option>
+            <option value="hasil_panen">hasil panen</option>
+            
+        </select>
+      </div>
+      <div class="input-button-wraper">
+        <input type = "jumlah_produk_dihasilkan" placeholder="jumlah produk dihasilkan" name="jumlah_produk_dihasilkan"> 
+    </div>
+   
+    </div>
+    <div class="input-button-wraper">
+      <button type= "submit" id="tombol"  onclick= "duplicateForm();">
+        Tambahkan Bahan
+    </button>
+    </div>
+   
+    <br>
+    <div class="input-button-wraper">
+      <button type= "submit" id="tombol" >
+          Tambahkan
+      </button>
+    </div>
+    
+    </form>
+</div>
+<script>
+  const div = document.getElementById('wraper-button-dropdown');
+  
+  function duplicateForm() {
+  
+    let forms = div.getElementsByClassName('wraper-button-dropdown');
+    let firstForm = forms[0];
+    let button = document.getElementById('add-more-rooms')
+    button.remove();
+    let formClone = firstForm.cloneNode(true);
+    
+    div.appendChild(formClone);
+    div.append(button);
+    
+  }
+  </script>
+{% endblock content %}
 
-<body>
-    <h1>FORM BUAT PRODUK</h1>
-    <form name="formproduk" onsubmit="return validateForm()" required>
-      <label for="Nama Produk Makanan">Nama Produk Makanan:</label>
-              <select name="Nama Produk Makanan" id="Nama Produk Makanan" >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="2">2</option>
-              </select>
-      <br>
-      <label for="Alat Produksi">Alat Produksi:</label>
-              <select name="Alat Produksi" id="Alat Produksi" >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="2">2</option>
-              </select>
-<br><br>
-      <label for="durasi">Durasi Produksi(dalam menit):</label><br>
-      <input type="number" id="durasi" name="durasi"><br>  
-      <label for="Jumlah">Jumlah Produk yang Dihasilkan:</label><br>
-      <input type="number" id="Jumlah" name="Jumlah"><br>  
-      <label for="Daftar Bahan">Daftar Bahan yang Dibutuhkan:</label><br> 
-      
-      <label for="Alat Produksi">Bahan:</label>
-              <select name="Alat Produksi" id="Alat Produksi" >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="2">2</option>
-              </select>
-      <label for="jumlah1">jumlah:</label>
-      <input type="number" id="jumlah1" name="jumlah1"><br> 
-      <label for="Alat Produksi">Bahan:</label>
-              <select name="Alat Produksi" id="Alat Produksi" >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="2">2</option>
-              </select>
-      <label for="jumlah3">jumlah:</label>
-      <input type="number" id="jumlah3" name="jumlah3"><br>
-      <label for="Alat Produksi">Bahan:</label>
-              <select name="Alat Produksi" id="Alat Produksi" >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="2">2</option>
-              </select>
-      <label for="jumlah2">jumlah:</label>
-      <input type="number" id="jumlah2" name="jumlah2"><br>  
-      <button type="button">TAMBAH BAHAN</button><br>
-      <input type="submit" value="Tambahkan">
-    </form>   
-
-</body>
-
-
-
-</html>
