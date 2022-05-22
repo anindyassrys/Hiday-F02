@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+<link rel="stylesheet" href="{% static 'css/list_lumbung.css' %}">
+<title>Basdat TK3 - F02</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="form-wraper">
+    <form method="post">
+      {% csrf_token %}
+        <h1>
+            FORM UBAH PRODUKSI
+        </h1>
+        <div class="input-button-wraper">
+            <input type = "nama_produk_makanan" placeholder="nama produk makanan" name="nama_produk_makanan"> 
+        </div>
+        <div class="input-button-wraper">
+            <input type = "alat_produksi" placeholder="alat produksi" name="alat_produksi"> 
+        </div>
+        <div class="input-button-wraper">
+          <input type = "durasi_produksi" placeholder="durasi produksi" name="durasi_produksi"> 
+        </div>
+        <div class="input-button-wraper">
+            <input type = "jumlah_produk_yang_dihasilkan" placeholder="jumlah produk yang dihasilkan" name="jumlah_produk_yang_dihasilkan"> 
+          </div>
+
+      </form>
+  </div>
+
+<br>
+<br>
+<h2>Daftar Bahan yang Dibutuhkan:</h2>
+<div class="table-wraper">
+    <table class ="table">
+        <thead>
+            <th>No</th>
+            <th>Bahan</th>
+            <th>Jumlah</th>
+        </thead>
+        <tbody>
+            {%for j,i in object_bahan %}
+            <tr>
+                <td id="number">{{j}}</td>
+                <td>{{i.bahan}}</td>
+                <td>{{i.jumlah}}</td>
+            </tr>
+            {% endfor %}
+    
+            
+        </tbody>
+    
+        </table>
+</div>
+<div class="input-button-wraper">
+    <button type= "submit" id="simpan" >
+        Simpan
+    </button>
+</div> 
+{% endblock content %}
