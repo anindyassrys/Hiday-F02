@@ -22,7 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('paket-koin/', include('paket_koin.urls', namespace="paket-koin")),
     path('', include('main.urls', namespace="home")),
-    path('aset/', include('aset.urls')),
     path('lumbung/', include('lumbung.urls', namespace="lumbung")),
     path('histori-tanaman/', include('histori_tanaman.urls', namespace="histori_tanaman")),
     path('cr-histori-hewan/', include('cr_histori_hewan.urls')),

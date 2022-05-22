@@ -58,7 +58,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'aset',
     'paket_koin',
     'lumbung',
     'histori_tanaman',
