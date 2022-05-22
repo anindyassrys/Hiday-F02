@@ -29,11 +29,16 @@ def form_petak_sawah(request):
     return render(request, 'form_buat_aset.html', argument)
 
 def list_aset(request):
-    role = request.session['email'][1]
-    if role == "admin":
-        return render(request, 'admin_list_aset.html')
-    elif role == "pengguna":
-        return render(request, 'pengguna_list_aset.html')
+    with connection.cursor() as cursor:
+        cursor.execute("set search_path to public")
+        role = request.session['email'][1]
+
+        if role == "admin":
+            cursor.execute("set search_path to hidayf02")
+            return render(request, 'admin_list_aset.html')
+        elif role == "pengguna":
+            cursor.execute("set search_path to hidayf02")
+            return render(request, 'pengguna_list_aset.html')
 
 def list_dekorasi(request):
     with connection.cursor() as cursor:
@@ -91,6 +96,7 @@ def list_alat_produksi(request):
         elif request.session.get("role") == "pengguna":
             return render(request, 'pengguna_tabel_list_aset.html', argument)
 
+
 def list_petak_sawah(request):
     with connection.cursor() as cursor:
         cursor.execute("SELECT * FROM ASET A INNER JOIN PETAK_SAWAH P ON A.ID = P.ID_Aset")
@@ -101,3 +107,4 @@ def list_petak_sawah(request):
             return render(request, 'admin_tabel_list_aset.html', argument)
         elif request.session.get("role") == "pengguna":
             return render(request, 'pengguna_tabel_list_aset.html', argument)
+

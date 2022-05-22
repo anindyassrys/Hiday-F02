@@ -27,5 +27,6 @@ urlpatterns = [
     path('histori-tanaman/', include('histori_tanaman.urls', namespace="histori_tanaman")),
     path('cr-histori-hewan/', include('cr_histori_hewan.urls')),
     path('crud-pesanan/', include('crud_pesanan.urls')),
-    path('cr-histori-penjualan/', include('cr_histori_penjualan.urls'))
+    path('cr-histori-penjualan/', include('cr_histori_penjualan.urls')),
+    path('aset/', include('aset.urls'))
 ]
