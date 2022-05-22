@@ -308,11 +308,11 @@ def update_produk(request): # membuat produk (admin)
     return render(request, 'update_produk.html')
 
 
-def create_produksi(request): # membuat produk (admin)
-    return render(request, 'create_produksi.html')
-
-def update_produksi(request): # membuat produk (admin)
-    return render(request, 'update_produksi.html')
-
 def create_histori_produk_makanan(request): # membuat produk (admin)
     return render(request, 'create_histori_produk_makanan.html')
+
+def register_admin(request): # membuat produk (admin)
+    return render(request, 'registrasi_admin.html')
+
+def register_pengguna(request): # membuat produk (admin)
+    return render(request, 'registriasi_pengguna.html')

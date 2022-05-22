@@ -4,7 +4,6 @@
 {% block meta %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="{% static 'css/form.css' %}">
-<link rel="stylesheet" href="{% static 'css/dropdown.css' %}">
 <title>Basdat TK3 - F02</title>
 {% endblock meta %}
 
@@ -15,19 +14,12 @@
       <h1>
           Buat Produk
       </h1>
-      <!-- <div class="input-button-wraper"> -->
-        <div class="wraper">
-          <!-- <label for="jenis_produk"></label> -->
-          <select name="select" id="jenis_produk">
-              <option disabled selected>jenis produk</option>
-              <option value="hasil_panen">hasil panen</option>
-              <option value="produk_hewan">produk hewan</option>
-              <option value="produk_makanan">produk makanan</option>
-          </select>
-        </div>
-       
-      <!-- </div> -->
-
+      <label for="jenis_produk">Jenis Produk:</label>
+        <select name="jenis_produk" id="jenis_produk">
+            <option value="hasil_panen">Hasil Panen</option>
+            <option value="produk_hewan">Produk Hewan</option>
+            <option value="produk_makanan">Produk Makanan</option>
+        </select>
       <div class="input-button-wraper">
           <input type = "nama" placeholder="nama" name="nama"> 
       </div>

@@ -1,43 +1,74 @@
-{% extends 'base.html' %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create Produk</title>
 
-{% block meta %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="{% static 'css/form.css' %}">
-<link rel="stylesheet" href="{% static 'css/dropdown.css' %}">
-<title>Basdat TK3 - F02</title>
-{% endblock meta %}
+        <script>
+                function validateForm() {
+                  var x = document.forms["formproduk"]["nama"].value;
+                  var y = document.forms["formproduk"]["Harga Jual"].value;
+                  var z = document.forms["formproduk"]["Sifat Produk"].value;
+                  if (x == "" || x == null || y=="" || y==null|| z=="" || z==null) {
+                    alert("Semua bidang harus diisi");
+                    return false;
+                  }
+                }
+        </script>
+</head>
+<body>
+        <h1>FORM BUAT PRODUK</h1>
+      <form name="formproduk" onsubmit="return validateForm()" required>
+        <label for="Nama Produk Makanan">Nama Produk Makanan:</label>
+                <select name="Nama Produk Makanan" id="Nama Produk Makanan" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="2">2</option>
+                </select>
+        <br>
+        <label for="Alat Produksi">Alat Produksi:</label>
+                <select name="Alat Produksi" id="Alat Produksi" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="2">2</option>
+                </select>
+  <br><br>
+        <label for="durasi">Durasi Produksi(dalam menit):</label><br>
+        <input type="number" id="durasi" name="durasi"><br>  
+        <label for="Jumlah">Jumlah Produk yang Dihasilkan:</label><br>
+        <input type="number" id="Jumlah" name="Jumlah"><br>  
+        <label for="Daftar Bahan">Daftar Bahan yang Dibutuhkan:</label><br> 
+        
+        <label for="Alat Produksi">Bahan:</label>
+                <select name="Alat Produksi" id="Alat Produksi" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="2">2</option>
+                </select>
+        <label for="jumlah1">jumlah:</label>
+        <input type="number" id="jumlah1" name="jumlah1"><br> 
+        <label for="Alat Produksi">Bahan:</label>
+                <select name="Alat Produksi" id="Alat Produksi" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="2">2</option>
+                </select>
+        <label for="jumlah3">jumlah:</label>
+        <input type="number" id="jumlah3" name="jumlah3"><br>
+        <label for="Alat Produksi">Bahan:</label>
+                <select name="Alat Produksi" id="Alat Produksi" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="2">2</option>
+                </select>
+        <label for="jumlah2">jumlah:</label>
+        <input type="number" id="jumlah2" name="jumlah2"><br>  
+        <button type="button">TAMBAH BAHAN</button><br>
+        <input type="submit" value="Tambahkan">
+      </form>  
+</body>
 
-{% block content %}
-<div class="form-wraper">
-  <form method="post">
-    {% csrf_token %}
-      <h1>
-          Ubah Produk
-      </h1>
-      <div class="wraper">
-        <!-- <label for="jenis_produk"></label> -->
-        <select name="select" id="jenis_produk" disabled>
-            <option disabled selected>jenis produk</option>
-            <option value="hasil_panen">hasil panen</option>
-            <option value="produk_hewan">produk hewan</option>
-            <option value="produk_makanan">produk makanan</option>
-        </select>
-      </div>
-      <div class="input-button-wraper">
-          <input type = "nama" placeholder="nama" name="nama" disabled> 
-      </div>
-      <div class="input-button-wraper">
-          <input type = "harga_jual" placeholder="harga jual" name="harga_jual"> 
-      </div>
-      <div class="input-button-wraper">
-        <input type = "sifat_produk" placeholder="sifat produk" name="sifat_produk"> 
-    </div>
-      <div class="input-button-wraper">
-          <button type= "submit" id="tombol" >
-              Tambahkan
-          </button>
-      </div> 
-    </form>
-</div>
-{% endblock content %}
+
+</html>
