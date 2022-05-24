@@ -274,7 +274,6 @@ def produksi_details(request, slug):
     return render(request, 'details_produksi.html', {'object' : context, 'object_bahan':x } )
   
 
-
 def object_entitas(query): # mengembalikan value relasi dalam bentuk object (class) dalam bentuk list
      # source code: https://dev.to/stndaru/connecting-django-to-postgresql-on-heroku-and-perform-sql-command-4m8e
     cursor = connection.cursor()
@@ -297,3 +296,9 @@ def object_entitas(query): # mengembalikan value relasi dalam bentuk object (cla
         number_result[i+1] = result[i]
     
     return list(number_result.items())
+
+def register_admin(request):
+    return render(request, "registrasi_admin.html")
+
+def register_pengguna(request):
+    return render(request, "registrasi_pengguna.html")

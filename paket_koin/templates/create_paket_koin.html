@@ -11,9 +11,9 @@
 <form method="post">
   {% csrf_token %}
   <p>Jumlah Koin:</p>
-  <input type="number" name="value" required>
+  <input type="number" name="jumlah_koin" required>
   <p>Harga:</p>
-  <input type="number" name="price" required>
-  <button type="submit">Tambahkan</button>
+  <input type="number" name="harga" required>
+  <button type="submit">Buat</button>
 </form>
 {% endblock content %}

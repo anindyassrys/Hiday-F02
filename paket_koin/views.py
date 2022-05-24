@@ -11,6 +11,8 @@ def create_paket_koin(request):
             if request.method == "POST":
                 jumlah_koin = request.POST["jumlah_koin"]
                 harga = request.POST["harga"]
+                cursor.execute("SET search_path to hidayf02")
+                cursor.execute("""INSERT INTO paket_koin (jumlah_koin, harga) VALUES ('"""+jumlah_koin+"""', '"""+harga+"""')""")
                 return redirect("paket_koin:list_paket_koin")
             else:
                 return render(request, "create_paket_koin.html", {})
@@ -38,7 +40,7 @@ def list_paket_koin(request):
     return render(request, 'list_paket_koin.html', {'results': result, 'role': role})
 
 #update paket_koin
-def update_paket_koin(request, value, harga):
+def update_paket_koin(request, jumlah_koin, harga):
     cursor = connection.cursor()
     cursor.execute("SET search_path TO public")
     
@@ -46,9 +48,13 @@ def update_paket_koin(request, value, harga):
         role = request.session['email'][1]
         if role == "admin":
             if request.method == "POST":
+                jumlah_koin = request.POST["jumlah_koin"]
+                harga = request.POST["harga"]
+                cursor.execute("SET search_path to hidayf02")
+                cursor.execute("""UPDATE paket_koin SET jumlah_koin = '"""+jumlah_koin+"""', harga = '"""+harga+"""' """)
                 return redirect("paket_koin:list_paket_koin")
             else:
-                return render(request, 'create_paket_koin.html', {'value': value, 'role': role, 'harga':harga})
+                return render(request, 'create_paket_koin.html', {'value': jumlah_koin, 'role': role, 'harga':harga})
         else:
             return redirect("paket_koin:list_paket_koin")
     else:

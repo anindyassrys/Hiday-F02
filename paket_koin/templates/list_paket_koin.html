@@ -45,7 +45,7 @@
                     <td>{{forloop.counter}}</td>
                     <td>{{i.0}}</td>
                     <td>{{i.1}}</td>
-                    <td><a href="#">Update</a></td>
+                    <td><a href="{% url 'paket-koin:update_paket_koin' i.0 i.1 %}">Update</a></td>
                     <td><a href="#">Delete</a></td>
                 </tr>
                 {% endfor %}
