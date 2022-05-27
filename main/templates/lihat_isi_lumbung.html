@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block meta %}
-<title>Basdat TK3 - F02</title>
+<title>Lihat isi lumbung</title>
 {% endblock meta %}
 
 {% block content %}
@@ -12,7 +12,6 @@
     <h3>Level: -</h3>
     <h3>Kapasitas: -</h3>
 
-    <div class="table-wraper">
         <table class ="table">
             <thead>
                 <th>No</th>
@@ -38,10 +37,9 @@
             </tbody>
         
             </table>
-        </div>
+            <br><br>
         
-        
-        <div class="table-wraper">
+
             <table class ="table">
                 <thead>
                     <th>No</th>
@@ -67,8 +65,7 @@
                 </tbody>
             
                 </table>
-            </div>
-            <div class="table-wraper">
+            <br><br>
                 <table class ="table">
                     <thead>
                         <th>No</th>
@@ -94,11 +91,9 @@
                     </tbody>
                 
                     </table>
-                </div>
 
 {% else %}
 
-<div class="table-wraper">
     <table class ="table">
         <thead>
             <th>No</th>
@@ -122,14 +117,11 @@
             </tr>
             {% endfor %}
     
-            
         </tbody>
-    
         </table>
-    </div>
+
+        <br><br>
     
-    
-    <div class="table-wraper">
         <table class ="table">
             <thead>
                 <th>No</th>
@@ -153,12 +145,10 @@
                 </tr>
                 {% endfor %}
         
-                
             </tbody>
-        
             </table>
-        </div>
-        <div class="table-wraper">
+            <br><br>
+       
             <table class ="table">
                 <thead>
                     <th>No</th>
@@ -186,6 +176,5 @@
                 </tbody>
             
                 </table>
-            </div>
 {% endif %}
 {% endblock content %}

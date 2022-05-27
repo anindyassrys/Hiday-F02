@@ -34,8 +34,8 @@
                     Lumbung
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/lumbung">List Transaksi Upgrade Lumbung</a>
                     <a class="dropdown-item" href="{% url 'home:lihat_isi_lumbung' %}">Lihat Isi Lumbung</a>
-                    <a class="dropdown-item" href="#">List Transaksi Upgrade Lumbung</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -43,9 +43,9 @@
                     Koin
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Buat Paket Koin</a>
-                    <a class="dropdown-item" href="#">List Paket Koin</a>
-                    <a class="dropdown-item" href="#">List Transaksi Pembelian Koin</a>
+                    <a class="dropdown-item" href="/paket-koin/create-paket-koin">Buat Paket Koin</a>
+                    <a class="dropdown-item" href="/paket-koin">List Paket Koin</a>
+                    <a class="dropdown-item" href="{% url 'paket-koin:list_transaksi_pembelian_koin' %}">List Transaksi Pembelian Koin</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -87,7 +87,8 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="#">List Histori Produksi Hewan</a>
-                  <a class="dropdown-item" href="#">List Histori Produksi Tanaman</a>
+                  <a class="dropdown-item" href="/histori-tanaman">List Histori Produksi Tanaman</a>
+                  <a class="dropdown-item" href="#">List Histori Produksi Penjualan</a>
                   <a class="dropdown-item" href="{% url 'home:histori_produk_makanan' %}">List Histori Produksi Makanan</a>
               </div>
           </li>
@@ -127,9 +128,9 @@
                       Lumbung
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/lumbung/upgrade-lumbung">Upgrade Lumbung</a>
+                      <a class="dropdown-item" href="/lumbung">List Transaksi Upgrade Lumbung</a>
                       <a class="dropdown-item" href="{% url 'home:lihat_isi_lumbung' %}">Lihat Isi Lumbung</a>
-                      <a class="dropdown-item" href="#">Upgrade Lumbung</a>
-                      <a class="dropdown-item" href="#">List Transaksi Upgrade Lumbung</a>
                   </div>
               </li>
               <li class="nav-item dropdown">
@@ -177,8 +178,8 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Produksi Hewan</a>
                     <a class="dropdown-item" href="#">List Histori Produksi Hewan</a>
-                    <a class="dropdown-item" href="#">Produksi Tanaman</a>
-                    <a class="dropdown-item" href="#">List Histori Produksi Tanaman</a>
+                    <a class="dropdown-item" href="/histori-tanaman/produksi-tanaman">Produksi Tanaman</a>
+                    <a class="dropdown-item" href="/histori-tanaman">List Histori Produksi Tanaman</a>
                     <a class="dropdown-item" href="{% url 'home:create_histori_produk_makanan' %}">Produksi Produk Makanan</a>
                     <a class="dropdown-item" href="{% url 'home:histori_produk_makanan' %}">List Histori Produksi Makanan</a>
                 </div>
