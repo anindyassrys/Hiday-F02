@@ -25,7 +25,8 @@
                 <td>{{ res.koin }}</td>
                 <td>{{ res.xp }}</td>
                 <td>
-                    <a href="/cr-histori-penjualan/detail/{{res.id_pesanan}}">Detail</a>
+                    <!-- <a href="/cr-histori-penjualan/detail/{{res.id_pesanan}}">Detail</a> -->
+                    <a href="{% url 'cr_histori_penjualan:detail-penjualan' res.email res.id_pesanan %}">Detail</a>
                 </td>
             </tr>
             {% endfor %}
@@ -50,7 +51,7 @@
                 <td>{{ res.koin }}</td>
                 <td>{{ res.xp }}</td>
                 <td>
-                    <a href="/cr-histori-penjualan/detail/{{res.id_pesanan}}">Detail</a>
+                    <a href="{% url 'cr_histori_penjualan:detail-penjualan' res.email res.id_pesanan %}">Detail</a>
                 </td>
             </tr>
             {% endfor %}

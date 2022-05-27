@@ -33,8 +33,15 @@
     </table>
     {% if role == 'pengguna' %}
     {% for res in result1 %}
-    {% if res.status != 'Selesai' %}
-    <a href="#">Ambil</a>
+    {% if res.status != 'selesai' %}
+    <div align='center'>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="id" value={{res.id}}>
+            <input type="hidden" name="total" value={{res.total}}>
+            <button type="submit">Ambil</button>
+        </form>
+    </div>
     {% endif %}
     {% endfor %}
     {% endif %}

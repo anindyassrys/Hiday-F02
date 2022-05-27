@@ -11,8 +11,9 @@ def tuple_fetch(cursor):
     return [nt_result(*row) for row in cursor.fetchall()]
 
 def list_histori_penjualan(request):
+    cursor = connection.cursor()
+    cursor.execute("SET search_path TO public")
     if request.session.has_key('email'):
-        cursor = connection.cursor()
         result = []
         try:
             cursor.execute("set search_path to hidayf02")
@@ -37,22 +38,29 @@ def list_histori_penjualan(request):
     else:
         return HttpResponseRedirect('/login')
 
-def view_detail_penjualan(request, id):
+def detail_penjualan(request, email, id):
+    cursor = connection.cursor()
+    cursor.execute("SET search_path TO public")
     if request.session.has_key('email'):
-        cursor = connection.cursor()
         result1 = []
         result2 = []
         result3 = []
         try:
             cursor.execute("set search_path to hidayf02")
-            cursor.execute("select email, waktu_penjualan from histori_penjualan where id_pesanan = '" + id +"';")
+            if (request.session['email'][1] == 'admin'):
+                role = "admin"
+
+            else:
+                role = "pengguna"
+
+            cursor.execute("select email, waktu_penjualan from histori_penjualan where id_pesanan = '" + id +"' and email = '"+ email +"';")
             result1 = tuple_fetch(cursor)
 
             cursor.execute("select id, nama, jenis, total, status from pesanan where id = '" + id +"';")
             result2 = tuple_fetch(cursor)
 
             cursor.execute("select p.nama, dp.jumlah, dp.subtotal from detail_pesanan dp join produk p on dp.id_produk = p.id where dp.id_pesanan = '" + id +"';")
-            result3 = tuple_fetch(cursor)
+            result3 = tuple_fetch(cursor)       
 
         except Exception as e:
             print(e)
@@ -60,7 +68,7 @@ def view_detail_penjualan(request, id):
         finally:
             cursor.close()
 
-        return render(request, 'detail_penjualan.html', {"result1" : result1, "result2" : result2, "result3" : result3})
+        return render(request, 'detail_penjualan.html', {"result1" : result1, "result2" : result2, "result3" : result3, "role":role})
 
     else:
         return HttpResponseRedirect('/login')

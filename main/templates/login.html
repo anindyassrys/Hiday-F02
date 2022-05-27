@@ -1,8 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'base_web.html' %}
 {% load static %}
 
 {% block meta %}
 <title>Basdat TK3 - F02</title>
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
 {% endblock meta %}
 
 {% block content %}
@@ -18,6 +19,9 @@
       <div class="input-button-wraper">
           <input type = "password" placeholder="password" name="password"> 
       </div>
+      <a href="{% url 'home:register_pengguna' %}">Register Pengguna</a>
+      <br>
+      <a href="{% url 'home:register_admin' %}">Register Admin</a>
       <div class="input-button-wraper">
           <button type= "submit" id="tombol" >
               OK
