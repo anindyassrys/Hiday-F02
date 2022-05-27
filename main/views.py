@@ -302,3 +302,14 @@ def register_admin(request):
 
 def register_pengguna(request):
     return render(request, "registrasi_pengguna.html")
+def create_produk(request): # membuat produk (admin)
+    return render(request, 'create_produk.html')
+
+
+def update_produk(request): # membuat produk (admin)
+    return render(request, 'update_produk.html')
+
+
+def create_histori_produk_makanan(request): # membuat produk (admin)
+    return render(request, 'create_histori_produk_makanan.html')
+

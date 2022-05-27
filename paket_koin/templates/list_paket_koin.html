@@ -45,14 +45,20 @@
                     <td>{{forloop.counter}}</td>
                     <td>{{i.0}}</td>
                     <td>{{i.1}}</td>
-                    <td><a href="{% url 'paket-koin:update_paket_koin' i.0 i.1 %}">Update</a></td>
-                    <td><a href="#">Delete</a></td>
+                    <td><a href="{% url 'paket-koin:update_paket_koin' i.0 i.1 %}">Update</a>
+                    {% if i not in deleteable %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="jumlah_koin" value={{i.0}}>
+                        <input type="hidden" name="harga" value={{i.1}}>
+                        <button type="submit" style="padding: 4px 12px; border-radius: 12px; background-color: #25263b; color: white; width: 100px">Delete</button></td>
+                    </form>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
             </table>
         </div>
-    {% endif %}
-    
+{% endif %}
 {% endblock content %}
 

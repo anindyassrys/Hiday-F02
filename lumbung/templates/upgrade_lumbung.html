@@ -2,14 +2,35 @@
 {% load static %}
 
 {% block meta %}
-<title>Tambah Paket Koin</title>
+<title>Upgrade lumbung</title>
 {% endblock meta %}
 
 {% block content %}
-<h2>Upgrade lumbung</h2>
+<br><br>
+<h2  style="text-align:center"><b>Upgrade Lumbung</b></h2>
+<br>
   
-<h4>Level lumbung: 1</h4>
-<h4>Kapasitas lumbung: 50</h4>
-<h4>Biaya upgrade: 200</h4>
-<button type="submit">Upgrade</button>
+{% for i in results %}
+<form style="margin: auto; width: 220px;" method="post">
+    {% csrf_token %}
+    <h4 disabled>Level lumbung: {{i.1}} -> {{level}}</h4>
+    <input type="hidden" name="level" value={{level}} disabled>
+    <h4 disabled>Kapasitas lumbung: {{i.2}} -> {{kapasitas}}</h4>
+    <input type="hidden" name="kapasitas" value={{kapasitas}} disabled>
+    <h4 disabled>Biaya upgrade: 200</h4>
+    <input type="hidden" name="harga" value=200 disabled>
+    <br>
+    <button type="submit" style="padding: 4px 12px; border-radius: 12px; background-color: #25263b; color: white; width: 100px">Upgrade</button>
+
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+    
+</form>
+{% endfor %}
+
 {% endblock content %}

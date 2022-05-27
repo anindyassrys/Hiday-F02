@@ -14,5 +14,8 @@ urlpatterns = [
     path('lihat_isi_lumbung', views.lihat_isi_lumbung, name = 'lihat_isi_lumbung'),
     path('produksi/<slug:slug>', views.produksi_details, name = 'produk_details'),
     path('register-admin', views.register_admin, name = 'register-admin'),
-    path('register-pengguna', views.register_pengguna, name = 'register-pengguna')
+    path('register-pengguna', views.register_pengguna, name = 'register-pengguna'),
+    path('create_produk', views.create_produk, name = 'create_produk'),
+    path('update_produk', views.update_produk, name = 'update_produk'),
+    path('create_histori_produk_makanan', views.create_histori_produk_makanan, name = 'create_histori_produk_makanan')
 ]

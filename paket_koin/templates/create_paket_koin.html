@@ -6,14 +6,18 @@
 {% endblock meta %}
 
 {% block content %}
-<h2>Tambah Paket Koin</h2>
+<br><br>
+<h2  style="text-align:center"><b>Tambah Paket Koin</b></h2>
+<br>
   
-<form method="post">
+<form method="post" style="margin: auto; width: 220px;">
   {% csrf_token %}
-  <p>Jumlah Koin:</p>
-  <input type="number" name="jumlah_koin" required>
-  <p>Harga:</p>
-  <input type="number" name="harga" required>
-  <button type="submit">Buat</button>
+  <label for="jumlah_koin">Jumlah koin:</label>
+  <input type="number" name="jumlah_koin" style = "border-radius: 8px;" required>
+  <br>
+  <label for="harga">Harga:</label>
+  <input type="number" name="harga" style = "border-radius: 8px;" required>
+  <br><br>
+  <button type="submit" style="padding: 4px 12px; border-radius: 12px; background-color: #25263b; color: white; width: 100px">Buat</button>
 </form>
 {% endblock content %}
