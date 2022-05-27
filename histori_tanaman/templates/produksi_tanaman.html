@@ -2,20 +2,39 @@
 {% load static %}
 
 {% block meta %}
-<title>Tambah Paket Koin</title>
+<title>Produksi Tanaman</title>
 {% endblock meta %}
 
 {% block content %}
-<h2>Form produk tanaman</h2>
-  
-<form method="post">
+<br><br>
+<h2  style="text-align:center"><b>Form Produksi Tanaman</b></h2>
+<br>
+
+<form style="margin: auto; width: 220px;" method="post">
   {% csrf_token %}
-  <p>Bibit tanaman:</p>
-  <input type="text" name="value" value={{value}} disabled>
-  <p>Jumlah:</p>
-  <input type="number" name="jumlah" required>
-  <p>XP:</p>
-  <input type="text" name="xp" disabled>
-  <button type="submit">Produksi</button>
+  <label for="nama">Bibit tanaman:</label>
+  <select name="nama" style = "border-radius: 8px;">
+    {% for i in bibit_tanaman %}
+    <option value={{i.0}}>{{i.0}}</option>
+    {% endfor %}
+  </select>
+  <br>
+  <label for="jumlah">Jumlah:</label>
+  <input type="number" name="jumlah" style = "border-radius: 8px;" required>
+  <br><br>
+  <label for="xp">XP:</label>
+  <br>
+  <input type="number" name="xp" value={{xp}} style = "border-radius: 8px;" disabled>
+  <br><br>
+  <button type="submit" style="padding: 4px 12px; border-radius: 12px; background-color: #25263b; color: white; width: 100px">Produksi</button>
+
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  
 </form>
 {% endblock content %}

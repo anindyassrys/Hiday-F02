@@ -6,13 +6,18 @@
 {% endblock meta %}
 
 {% block content %}
-  <h1>Hello, {{email}}!</h1>
+  
 
   {% if role == 'pengguna' %}
+  <h1>Hello, {{email}}!</h1>
   <h3>Nama Area Pertanian: {{area}}</h3>
   <h3>XP: {{xp}}</h3>
   <h3>Koin: {{koin}}</h3>
   <h3>Level: {{level}}</h3>
+  {% endif %}
+
+  {% if role == 'admin' %}
+  <h1>Hello, {{email}}!</h1>
   {% endif %}
   <p><a href="{% url 'home:logout' %}">Log Out</a></p>
 {% endblock content %}
