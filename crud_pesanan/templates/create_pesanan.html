@@ -6,38 +6,78 @@
 {% endblock meta %}
 
 {% block content %}
-    {% if role == 'admin' %}
-    <form action = "" method = "POST">
+<style>
+    /* The alert message box */
+  .alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+  }
+  
+  /* The close button */
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* When moving the mouse over the close button */
+  .closebtn:hover {
+    color: black;
+  }
+  </style>
+    <form action = "" method = "post">
         {% csrf_token %}
         <div class="container" align='center'>
             </br>
             <label for="">ID Pesanan</label>
             </br>
-            <input type="text" class="form-control" placeholder="Masukkan ID pesanan" name="" required value="PSxxx" disabled>
+            <input type="text" class="form-control" placeholder="Masukkan id pesanan" name="id_pesanan" id="id_pesanan" required value="{{ new_id }}" disabled>
             </br>
             </br>
             <label for="">Nama Pesanan</label>
             </br>
-            <input type="text" class="form-control" placeholder="Masukkan nama pesanan" name="" required>
+            <input type="text" class="form-control" placeholder="Masukkan nama pesanan" name="nama_pesanan" id="nama_pesanan" required>
             </br>
             </br>
             <label for="">Jenis Pesanan</label>
             </br>
-            <input type="text" class="form-control" placeholder="Masukkan jenis pesanan" name="" required>
+            <input type="text" class="form-control" placeholder="Masukkan jenis pesanan" name="jenis" id="jenis" required>
             </br>
             </br>
             <label for="">Detail Pesanan</label>
-            <select id="" name="ID">
+            <br>
+            {% for i in result %}
+            <select id={{i.}} name="nama">
+                <option disabled selected value>Pilih produk</option>
+                {% for res in result %}
+                    <option value="{{ res.nama }}">{{ res.nama }}</option>
+                    <!-- <input type="number" style="width: 100px;" class="form-control" placeholder="Masukkan jumlah produk" name="{{ res.id }}" id="{{ res.id }}" value=0 min=0 max=999 required> -->
+                {% endfor %}
             </select>
+            <input type="number" style="width: 100px;" class="form-control" placeholder="Masukkan jumlah produk" name="{{ i.id }}" id="{{ i.id }}" value=0 min=0 max=999 required>
             </br>
-            </br>
+            {% endfor %}
             <div align='center'>
                 <button type='submit'>Buat</button>      
             </div>
+            {% if messages %}
+            <br>
+                <ul class="messages">
+                    <div class="alert">
+                        {% for message in messages %}
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        {{message}}
+                        {% endfor %}
+                    </div>
+                </ul>
+            {% endif %}
         </div> 
     </form>
-    {% endif %}
-    {% if role == 'pengguna' %}
-    <h1>Pengguna tidak bisa mengakses fitur ini!</h1>
-    {% endif %}
 {% endblock content %}

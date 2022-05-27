@@ -34,7 +34,6 @@
     {% if role == 'pengguna' %}
     <table class="table">
         <thead>
-            <th>Email</th>
             <th>Waktu Awal</th>
             <th>Waktu Selesai</th>
             <th>Jumlah</th>
@@ -44,7 +43,6 @@
         <tbody>
             {% for res in result %}
             <tr>
-                <td>{{ res.email }}</td>
                 <td>{{ res.waktu_awal }}</td>
                 <td>{{ res.waktu_selesai }}</td>
                 <td>{{ res.jumlah }}</td>

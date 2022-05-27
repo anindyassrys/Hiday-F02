@@ -24,8 +24,8 @@ urlpatterns = [
     path('', include('main.urls', namespace="home")),
     path('lumbung/', include('lumbung.urls', namespace="lumbung")),
     path('histori-tanaman/', include('histori_tanaman.urls', namespace="histori_tanaman")),
-    path('cr-histori-hewan/', include('cr_histori_hewan.urls')),
-    path('crud-pesanan/', include('crud_pesanan.urls')),
-    path('cr-histori-penjualan/', include('cr_histori_penjualan.urls')),
+    path('histori-hewan/', include('cr_histori_hewan.urls')),
+    path('pesanan/', include('crud_pesanan.urls')),
+    path('histori-penjualan/', include('cr_histori_penjualan.urls')),
     path('aset/', include('aset.urls'))
 ]
