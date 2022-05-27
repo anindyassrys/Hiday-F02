@@ -8,7 +8,6 @@ from re import X
 from datetime import datetime
 from tokenize import Name
 from traceback import print_tb
-from turtle import update
 from django.db import connection
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.shortcuts import redirect, render
