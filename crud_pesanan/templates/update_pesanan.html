@@ -6,35 +6,34 @@
 {% endblock meta %}
 
 {% block content %}
-{% if role == 'admin' %}
-<form action = "" method = "POST">
+<form action = "" method = "post">
     {% csrf_token %}
     <div class="container" align='center'>
         {% for res in result1 %}
             </br>
             <label for="">ID Pesanan</label>
             </br>
-            <input type="text" class="form-control" placeholder="Masukkan ID pesanan" name="" required value="{{res.id}}" disabled>
+            <input type="text" class="form-control" placeholder="Masukkan id pesanan" name="id" id="id" required value="{{res.id}}" disabled>
             </br>
             </br>
             <label for="">Nama Pesanan</label>
             </br>
-            <input type="text" class="form-control" placeholder="Masukkan nama pesanan" name="" required value="{{res.nama}}">
+            <input type="text" class="form-control" placeholder="Masukkan nama pesanan" name="nama" id="nama" required value="{{res.nama}}">
             </br>
             </br>
             <label for="">Jenis Pesanan</label>
             </br>
-            <input type="text" class="form-control" placeholder="Masukkan jenis pesanan" name="" required value="{{res.jenis}}">
+            <input type="text" class="form-control" placeholder="Masukkan jenis pesanan" name="jenis" id="jenis" required value="{{res.jenis}}">
             </br>
             </br>
             <label for="">Status Pesanan</label>
             </br>
-            <input type="text" class="form-control" placeholder="Masukkan status pesanan" name="" required value="{{res.status}}">
+            <input type="text" class="form-control" placeholder="Masukkan status pesanan" name="status" id="status" required value="{{res.status}}">
             </br>
             </br>
             <label for="">Total Koin</label>
             </br>
-            <input type="text" class="form-control" placeholder="Masukkan total koin" name="" required value="{{res.total}}" disabled>
+            <input type="text" class="form-control" placeholder="Masukkan total koin" name="total" id="total" required value="{{res.total}}" disabled>
             </br>
             </br>
         {% endfor %}
@@ -59,8 +58,4 @@
         </div>
     </div> 
 </form>
-{% endif %}
-{% if role == 'pengguna' %}
-<h1>Pengguna tidak bisa mengakses fitur ini!</h1>
-{% endif %}
 {% endblock content %}

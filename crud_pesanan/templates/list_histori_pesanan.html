@@ -17,7 +17,7 @@
             <th>Action</th>
         </thead>
         <tbody>
-            {% for res in result %}
+            {% for res in result2 %}
             <tr>
                 <td>{{ res.id }}</td>
                 <td>{{ res.status }}</td>
@@ -25,13 +25,23 @@
                 <td>{{ res.nama }}</td>
                 <td>{{ res.total }}</td>
                 <td>
-                    <a href="/crud-pesanan/detail/{{res.id}}">Detail</a>
+                    <a href="/pesanan/detail/{{res.id}}">Detail</a>
+                </td>
+            </tr>
+            {% endfor %}
+            {% for res in result3 %}
+            <tr>
+                <td>{{ res.id }}</td>
+                <td>{{ res.status }}</td>
+                <td>{{ res.jenis }}</td>
+                <td>{{ res.nama }}</td>
+                <td>{{ res.total }}</td>
+                <td>
+                    <a href="/pesanan/detail/{{res.id}}">Detail</a>
                     </br>
-                    {% if res.status != 'Selesai' %}
-                    <a href="/crud-pesanan/update/{{res.id}}">Update</a>
-                    {% endif %}
+                    <a href="/pesanan/update/{{res.id}}">Update</a>
                     </br>
-                    <a href="/crud-pesanan/delete/{{res.id}}">Delete</a>
+                    <a href="/pesanan/delete/{{res.id}}">Delete</a>
                 </td>
             </tr>
             {% endfor %}
@@ -49,7 +59,7 @@
             <th>Action</th>
         </thead>
         <tbody>
-            {% for res in result %}
+            {% for res in result1 %}
             <tr>
                 <td>{{ res.id }}</td>
                 <td>{{ res.status }}</td>
@@ -57,7 +67,7 @@
                 <td>{{ res.nama }}</td>
                 <td>{{ res.total }}</td>
                 <td>
-                    <a href="/crud-pesanan/detail/{{res.id}}">Detail</a>
+                    <a href="/pesanan/detail/{{res.id}}">Detail</a>
                 </td>
             </tr>
             {% endfor %}
