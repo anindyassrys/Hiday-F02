@@ -1,20 +1,31 @@
 from django.urls import path
-from aset.views import *
-urlpatterns = [
-    path('buat_aset', buat_aset,  name='buat_aset'),
-    path('form_dekorasi', form_dekorasi,  name='form_dekorasi'),
-    path('form_bibit_tanaman', form_bibit_tanaman,  name='form_bibit_tanaman'),
-    path('form_kandang', form_kandang,  name='form_kandang'),
-    path('form_hewan', form_hewan,  name='form_hewan'),
-    path('form_alat_produksi', form_alat_produksi,  name='form_alat_produksi'),
-    path('form_petak_sawah', form_petak_sawah,  name='form_petak_sawah'),
-    path('list_aset', list_aset,  name='list_aset'),
-    path('list_dekorasi', list_dekorasi,  name='list_dekorasi'),
-    path('list_bibit_tanaman', list_bibit_tanaman,  name='list_bibit_tanaman'),
-    path('list_kandang', list_kandang,  name='list_kandang'),
-    path('list_hewan', list_hewan,  name='list_hewan'),
-    path('list_alat_produksi', list_alat_produksi,  name='list_alat_produksi'),
-    path('list_petak_sawah', list_petak_sawah,  name='list_petak_sawah'),
-]
+from .views import *
 
+app_name = 'aset'
+
+urlpatterns = [
+    path('', menu_buat_aset, name='menu_buat_aset'),
+    path('view', menu_lihat_aset, name='menu_lihat_aset'),
+    path('hewan_menghasilkan_produk_hewan', hewan_menghasilkan_produk_hewan, name='hewan_menghasilkan_produk_hewan'),
+    path('bibit_menghasilkan_panen', bibit_menghasilkan_panen, name='bibit_menghasilkan_panen'),
+    path('cdekor', create_dekorasi, name='create_dekor'),
+    path('udekor', update_dekorasi, name='update_dekor'),
+    path('list-dekorasi', read_dekorasi, name='list_dekorasi'),
+    path('cbibit', create_bibit_tanaman, name='create_bibit'),
+    path('ubibit', update_bibit, name='update_bibit'),
+    path('list-bibit-tanaman', read_bibit_tanaman, name='list_bibit_tanaman'),
+    path('ckandang', create_kandang, name='create_kandang'),
+    path('ukandang', update_kandang, name='update_kandang'),
+    path('list-kandang', read_kandang, name='list_kandang'),
+    path('chewan', create_hewan, name='create_hewan'),
+    path('uhewan', update_hewan, name='update_hewan'),
+    path('list-hewan', read_hewan, name='list_hewan'),
+    path('calatproduksi', create_alat, name='create_alat'),
+    path('ualatproduksi', update_alat, name='update_alat'),
+    path('list-alat-produksi', read_alat, name='list_alat'),
+    path('cpetak', create_petak, name='create_petak'),
+    path('upetak', update_petak, name='update_petak'),
+    path('list-petak', read_petak, name='list_petak'),
+    path('delete', delete_aset, name='delete'),
+]
 

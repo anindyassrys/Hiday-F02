@@ -28,5 +28,6 @@ urlpatterns = [
     path('cr-histori-hewan/', include('cr_histori_hewan.urls')),
     path('crud-pesanan/', include('crud_pesanan.urls')),
     path('cr-histori-penjualan/', include('cr_histori_penjualan.urls')),
-    path('aset/', include('aset.urls'))
+#     path('koleksi_aset/', include('koleksi_aset.urls')),
+#     path('transaksi_pembelian_aset/', include('transaksi_pembelian_aset.urls'))
 ]
