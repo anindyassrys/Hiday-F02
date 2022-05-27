@@ -31,10 +31,12 @@ display: inline;}
   color: black;
 }
 
+
+
 </style>
 <body>
 
-<h1 style="text-align: center;">List Aset</h1>
+<h1 style="text-align: center;">List Koleksi Aset</h1>
 <hr style="border: 1px solid black;">
 
 <br> <br>
@@ -42,10 +44,11 @@ display: inline;}
     <thead class="thead-dark">
     <tr>
         <th scope="col">No.</th>
-        <th scope="col">ID Aset</th>
-        <th scope="col">Nama</th>
+        <th scope="col">Email Pengguna</th>
+        <th scope="col">Nama Aset</th>
         <th scope="col">Minimum Level</th>
         <th scope="col">Harga Beli</th>
+        <th scope="col">Jumlah</th>
         <th scope="col">
             {% if nama == "Dekorasi" %}
             Harga Jual
@@ -66,7 +69,7 @@ display: inline;}
         {% elif nama == "Hewan" %}
         <th scope="col">ID Kandang</th>
         {% endif%}
-        <th scope="col" class="d-flex justify-content-center">Action</th>
+<!--        <th scope="col" class="d-flex justify-content-center">Action</th>-->
     </tr>
     </thead>
 
@@ -84,16 +87,16 @@ display: inline;}
         {% elif nama == "Hewan" %}
         <td>{{ row.6 }}</td>
         {% endif %}
-        <td>
-            <div class="buttons">
+<!--        <td>-->
+<!--            <div class="buttons">-->
 
-                <div class="action_btn">
-                    <a href=#><button  name="submit" class="action_btn submit" type="submit" value="Update">Update</button></a>
-                    <a href=#><button  name="submit" class="action_btn submit" type="submit" value="Update">Delete</button></a>
-                </div>
+<!--                <div class="action_btn">-->
+<!--                    <a href="/aset/update/{{}}"><button  name="submit" class="action_btn submit" type="submit" value="Update">Update</button></a>-->
+<!--                    <a href="/aset/delete/{{}}"><button  name="submit" class="action_btn submit" type="submit" value="Delete">Delete</button></a>-->
+<!--                </div>-->
 
-            </div>
-        </td>
+<!--            </div>-->
+<!--        </td>-->
     </tr>
     {% endfor %}
     </tbody>

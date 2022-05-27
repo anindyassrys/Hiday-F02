@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>List Aset</title>
+</head>
+<body>
+
+<table class="table text-center">
+    <thead>
+    <tr>
+        <th scope="col">No.</th>
+        <th scope="col">ID Aset</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Minimum Level</th>
+        <th scope="col">Harga Beli</th>
+
+        {% if type == 'Dekorasi' %}
+        <th scope="col">Harga Jual</th>
+
+        {% elif type == 'Bibit Tanaman' %}
+        <th scope="col">Durasi Panen</th>
+
+        {% elif type == 'Kandang' %}
+        <th scope="col">Kapasitas Maksimal</th>
+        <th scope="col">Jenis Hewan</th>
+
+        {% elif type == 'Hewan' %}
+        <th scope="col">Durasi Produksi</th>
+        <th scope="col">ID Kandang</th>
+
+        {% elif type == 'Alat Produksi' %}
+        <th scope="col">Kapasitas Maksimum</th>
+
+        {% elif type == 'Petak Sawah' %}
+        <th scope="col">Jenis Tanaman</th>
+
+        {% endif %}
+
+        {% if request.session.peran == 'admin' %}
+        <th scope="col">Action</th>
+        {% endif %}
+
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for i in list %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.id_aset}}</td>
+        <td>{{ i.nama}}</td>
+        <td>{{ i.minimum_level}}</td>
+        <td>{{ i.harga_beli}}</td>
+
+        {% if type == 'Dekorasi' %}
+        <td>{{ i.harga_jual}}</td>
+
+        {% elif type == 'Bibit Tanaman' %}
+        <td>{{i.durasi_panen.isoformat}}</td>
+
+        {% elif type == 'Kandang' %}
+        <td>{{i.kapasitas_maks}}</td>
+        <td>{{i.jenis_hewan}}</td>
+
+        {% elif type == 'Hewan' %}
+        <td>{{ i.durasi_produksi.isoformat}}</td>
+        <td>{{ i.id_kandang}}</td>
+
+        {% elif type == 'Alat Produksi' %}
+        <td>{{i.kapasitas_maks}}</td>
+
+        {% elif type == 'Petak Sawah' %}
+        <td>{{i.jenis_tanaman}}</td>
+        {% endif %}
+
+        {% if request.session.peran == 'admin' %}
+        <td>
+            {% if type == 'Dekorasi' %}
+            <form action="{% url 'aset:update_dekor' %}" method="get">
+
+                {% elif type == 'Bibit Tanaman' %}
+                <form action="{% url 'aset:update_bibit' %}" method="get">
+
+                    {% elif type == 'Kandang' %}
+                    <form action="{% url 'aset:update_kandang' %}" method="get">
+
+                        {% elif type == 'Hewan' %}
+                        <form action="{% url 'aset:update_hewan' %}" method="get">
+
+                            {% elif type == 'Alat Produksi' %}
+                            <form action="{% url 'aset:update_alat' %}" method="get">
+
+                                {% elif type == 'Petak Sawah' %}
+                                <form action="{% url 'aset:update_petak' %}" method="get">
+
+                                    {% endif %}
+
+                                    <input type="hidden" id="id_aset" name="id_aset" value="{{ i.id_aset }}">
+                                    <button type="submit" class="btn btn-info btn-sm">Update</button>
+
+                                </form>
+
+                                <div class="mt-2"></div>
+                                {% if i.deletion == True %}
+                                <form action="{% url 'aset:delete' %}" method="get">
+                                    <input type="hidden" id="id_aset" name="id_aset" value="{{ i.id_aset }}">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                </form>
+                                {% endif %}
+        </td>
+        {% endif %}
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

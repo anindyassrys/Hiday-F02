@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        .alert {
+            background: #ffdb9b;
+            padding: 20px 40px;
+            min-width: 420px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-left: 8px solid #ffa502;
+        }
+        .alert.warning{
+            background-color: #FF9800;
+        }
+        .closebtn{
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .closebtn:hover{
+            color: black;
+        }
+    </style>
+    <title>Buat Aset {{type}}</title>
+
+</head>
+<body>
+
+{% if type == 'Hewan' and state == 'not available' %}
+<div class="alert warning">
+    <span class="closebtn">&times;</span>
+    Data untuk kandang hewan tersebut belum ada, silahkan membuat kandang terlebih dahulu.
+</div>
+{% endif %}
+<h4 class="mt-3 text-center" style="text-transform:uppercase;">form buat aset {{type}}</h4><hr>
+<div class="px-5">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="mt-3 d-flex justify-content-center">
+            <button type="submit" name="button" class="mt-3 btn btn-primary">TAMBAHKAN</button>
+        </div>
+    </form>
+</div>
+<script>
+        var close=document.getElementsByClassName("closebtn");
+        var i;
+
+        for (i = 0; i < close.length; i++){
+            close[i].onclick = function(){
+                var div = this.parentElement;
+                div.style.opacity = "0";
+                setTimeout(function(){
+                    div.style.display = "none";
+                }, 600);
+            }
+        }
+    </script>
+</body>
+</html>
