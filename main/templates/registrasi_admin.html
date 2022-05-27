@@ -1,8 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'base_web.html' %}
 {% load static %}
 
 {% block meta %}
 <title>Basdat TK3 - F02</title>
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
 {% endblock meta %}
 
 {% block content %}
@@ -18,12 +19,10 @@
       <div class="input-button-wraper">
           <input type = "password" placeholder="password" name="password"> 
       </div>
-      <div class="input-button-wraper">
-        <input type = "area" placeholder="nama area pertanian" name="area"> 
-    </div>
+      
       <div class="input-button-wraper">
           <button type= "submit" id="tombol" >
-              Registrasi
+            Registrasi
           </button>
       </div> 
     </form>

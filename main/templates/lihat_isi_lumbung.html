@@ -91,9 +91,9 @@
                     </tbody>
                 
                     </table>
-{% endif %}
 
-{% if role == 'admin' %}
+{% else %}
+
     <table class ="table">
         <thead>
             <th>No</th>
@@ -117,10 +117,9 @@
             </tr>
             {% endfor %}
     
-            
         </tbody>
-    
         </table>
+
         <br><br>
     
         <table class ="table">
@@ -177,5 +176,5 @@
                 </tbody>
             
                 </table>
-            {% endif %}
+{% endif %}
 {% endblock content %}
